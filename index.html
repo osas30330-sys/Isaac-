@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osas Medicare | Safe Motherhood, Healthy Beginnings</title>
+<meta name="description" content="Book antenatal care, find a midwife or doctor, and learn about safe pregnancy with Osas Medicare in Nigeria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0F5257; --teal-dark:#0A3B3F; --teal-soft:#DCEEEC;
+  --peach:#FFE7D6; --peach-soft:#FFF4EC;
+  --pink:#E8708A; --pink-soft:#FBD5DD;
+  --ink:#1D2B2C; --muted:#5B6B6C; --white:#fff;
+  --shadow:0 10px 30px rgba(15,82,87,.10);
+  --shadow-lg:0 20px 50px rgba(15,82,87,.16);
+  --r:28px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Figtree',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.15;color:var(--teal-dark);font-weight:600}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:12px}
+.wrap{width:min(1160px,92%);margin-inline:auto}
+section{padding:72px 0}
+.lead{color:var(--muted);font-size:1.1rem;max-width:56ch}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;font:600 1rem 'Figtree',sans-serif;padding:16px 30px;border-radius:999px;transition:transform .2s,box-shadow .2s,background .2s;min-height:52px}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn-primary{background:var(--pink);color:#fff;box-shadow:0 10px 24px rgba(232,112,138,.35)}
+.btn-primary:hover{background:#DC5E7A}
+.btn-teal{background:var(--teal);color:#fff;box-shadow:0 10px 24px rgba(15,82,87,.25)}
+.btn-teal:hover{background:var(--teal-dark)}
+.btn-wa{background:#25D366;color:#073B1B;box-shadow:0 10px 24px rgba(37,211,102,.3)}
+.btn-ghost{background:#fff;color:var(--teal);box-shadow:inset 0 0 0 2px var(--teal)}
+.btn-sm{padding:11px 22px;min-height:44px;font-size:.95rem}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* Navbar */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);transition:box-shadow .25s}
+header.scrolled{box-shadow:0 6px 24px rgba(15,82,87,.10)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:1.35rem;color:var(--teal-dark)}
+.logo-mark{width:40px;height:40px;border-radius:50%;background:var(--pink);display:grid;place-items:center}
+.logo-mark svg{width:22px;height:22px;fill:#fff}
+.menu{display:flex;align-items:center;gap:6px;list-style:none}
+.menu a.link{padding:10px 18px;border-radius:999px;font-weight:600;color:var(--muted);transition:background .2s,color .2s}
+.menu a.link:hover{background:var(--peach-soft);color:var(--teal)}
+.menu a.link.active{background:var(--peach);color:var(--teal-dark)}
+.burger{display:none;width:48px;height:48px;border:0;background:var(--peach);border-radius:50%;cursor:pointer;place-items:center}
+.burger svg{width:24px;height:24px;stroke:var(--teal-dark)}
+
+/* Hero */
+.hero{padding:40px 0 72px;background:linear-gradient(180deg,var(--peach-soft),#fff)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4rem);margin-bottom:20px;letter-spacing:-.01em}
+.hero .lead{margin-bottom:32px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+.hero-img{position:relative;justify-self:center;width:min(440px,100%)}
+.arch{aspect-ratio:4/5;border-radius:999px 999px 36px 36px;overflow:hidden;background:linear-gradient(160deg,var(--pink-soft),var(--peach));box-shadow:var(--shadow-lg);position:relative}
+.arch img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1}
+.arch .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--pink);z-index:0}
+.arch .ph svg{width:90px;height:90px}
+.blob{position:absolute;z-index:-1;border-radius:50%}
+.blob.a{width:150px;height:150px;background:var(--pink-soft);top:-20px;right:-30px}
+.blob.b{width:110px;height:110px;background:var(--teal-soft);bottom:30px;left:-34px}
+.float-card{position:absolute;left:-18px;bottom:36px;z-index:2;background:#fff;border-radius:22px;padding:14px 18px;box-shadow:var(--shadow-lg);display:flex;gap:12px;align-items:center;animation:bob 5s ease-in-out infinite}
+.float-card .dot{width:42px;height:42px;border-radius:50%;background:var(--teal-soft);display:grid;place-items:center}
+.float-card .dot svg{width:22px;height:22px;stroke:var(--teal)}
+.float-card b{display:block;font-size:.95rem;color:var(--teal-dark);line-height:1.2}
+.float-card span{font-size:.82rem;color:var(--muted)}
+@keyframes bob{50%{transform:translateY(-8px)}}
+
+/* Hero entrance (single orchestrated moment) */
+.hero .rise{opacity:0;transform:translateY(22px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+.hero .rise:nth-child(2){animation-delay:.1s}.hero .rise:nth-child(3){animation-delay:.2s}.hero .rise:nth-child(4){animation-delay:.3s}
+.hero-img.rise{animation-delay:.25s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* Stats */
+.stats{padding:0;margin-top:-28px;position:relative;z-index:3}
+.stats-box{background:var(--teal);color:#fff;border-radius:var(--r);padding:34px 28px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center;box-shadow:var(--shadow-lg)}
+.stat b{font-family:'Fraunces',serif;font-size:clamp(1.9rem,4vw,2.8rem);display:block;line-height:1.1;color:var(--peach)}
+.stat span{font-size:.98rem;opacity:.9}
+
+/* Section heads */
+.head{margin-bottom:40px}
+.head h2{font-size:clamp(1.8rem,3.6vw,2.7rem);margin-bottom:12px}
+.head.center{text-align:center}.head.center .lead{margin-inline:auto}
+
+/* Service cards */
+.grid{display:grid;gap:22px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border-radius:var(--r);padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.icon{width:60px;height:60px;border-radius:20px;display:grid;place-items:center;background:var(--peach)}
+.icon svg{width:30px;height:30px;stroke:var(--teal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card:nth-child(3n+2) .icon{background:var(--pink-soft)}
+.card:nth-child(3n) .icon{background:var(--teal-soft)}
+.card h3{font-size:1.3rem}
+.card p{color:var(--muted);font-size:.98rem;flex:1}
+.price{font-weight:700;color:var(--teal);font-size:1.05rem}
+.price small{display:block;font-weight:500;color:var(--muted);font-size:.8rem}
+.card .btn{width:100%}
+
+/* Steps */
+.steps{background:var(--peach-soft)}
+.step{display:flex;gap:18px;align-items:flex-start}
+.step .n{flex:none;width:52px;height:52px;border-radius:50%;background:var(--teal);color:#fff;font-family:'Fraunces',serif;font-weight:700;font-size:1.3rem;display:grid;place-items:center}
+.step h3{font-size:1.25rem;margin-bottom:4px}
+.step p{color:var(--muted)}
+
+/* Testimonials */
+.quote{background:var(--peach-soft);box-shadow:none}
+.quote:nth-child(2){background:var(--teal-soft)}
+.quote:nth-child(3){background:var(--pink-soft)}
+.quote p{font-size:1.05rem;color:var(--ink)}
+.who{display:flex;align-items:center;gap:12px;margin-top:6px}
+.avatar{width:48px;height:48px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:700;font-family:'Fraunces',serif}
+.who b{display:block;line-height:1.2}.who span{font-size:.85rem;color:var(--muted)}
+.stars{color:#E9A23B;letter-spacing:2px}
+
+/* CTA band */
+.cta-band{background:var(--teal);color:#fff;border-radius:40px;padding:56px 40px;text-align:center}
+.cta-band h2{color:#fff;margin-bottom:12px;font-size:clamp(1.7rem,3.4vw,2.5rem)}
+.cta-band p{opacity:.9;margin:0 auto 28px;max-width:52ch}
+.cta-band .cta-row{justify-content:center}
+
+/* Page title */
+.page-title{background:linear-gradient(180deg,var(--peach-soft),#fff);padding:56px 0 24px}
+.page-title h1{font-size:clamp(2rem,4.6vw,3.2rem);margin-bottom:12px}
+
+/* Booking */
+.book-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:start}
+.form-card{background:#fff;border-radius:var(--r);padding:36px;box-shadow:var(--shadow-lg)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{margin-bottom:18px}
+label{display:block;font-weight:600;margin-bottom:8px;color:var(--teal-dark);font-size:.97rem}
+input,select{width:100%;font:500 1rem 'Figtree',sans-serif;padding:15px 18px;min-height:52px;border-radius:18px;border:2px solid #EADFD6;background:var(--peach-soft);color:var(--ink);transition:border-color .2s,background .2s}
+input:focus,select:focus{outline:none;border-color:var(--teal);background:#fff}
+.field.bad input,.field.bad select{border-color:#D64545;background:#FFF1F1}
+.err{display:none;color:#B42323;font-size:.87rem;margin-top:6px}
+.field.bad .err{display:block}
+.hint{font-size:.85rem;color:var(--muted);margin-top:6px}
+.side-card{background:var(--peach);border-radius:var(--r);padding:30px}
+.side-card h3{margin-bottom:14px}
+.side-card ul{list-style:none;display:grid;gap:12px}
+.side-card li{display:flex;gap:10px}
+.side-card li svg{flex:none;width:22px;height:22px;stroke:var(--teal);margin-top:2px}
+.emergency{margin-top:20px;background:#fff;border-radius:20px;padding:18px;border-left:6px solid var(--pink)}
+.emergency b{color:#B42356}
+.success{text-align:center;padding:24px 8px;animation:pop .5s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+.success .tick{width:88px;height:88px;border-radius:50%;background:var(--teal);display:grid;place-items:center;margin:0 auto 22px}
+.success .tick svg{width:44px;height:44px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;stroke-dashoffset:40;animation:draw .6s .25s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.success h2{font-size:1.8rem;margin-bottom:12px}
+.summary{background:var(--peach-soft);border-radius:20px;padding:20px;text-align:left;margin:24px 0;display:grid;gap:8px}
+.summary div{display:flex;justify-content:space-between;gap:16px;font-size:.97rem}
+.summary span{color:var(--muted)}.summary b{text-align:right}
+
+
+/* Learn */
+.danger-box{background:#FFF0F3;border-radius:var(--r);padding:30px;border:2px solid var(--pink-soft);display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:start}
+.danger-box h2{font-size:1.6rem;margin-bottom:6px;color:#9B1F45}
+.danger-box ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;margin-top:16px}
+.danger-box li{display:flex;gap:10px;font-weight:500}
+.danger-box li::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:var(--pink);margin-top:9px}
+.danger-act{background:#fff;border-radius:22px;padding:22px;box-shadow:var(--shadow)}
+.danger-act p{margin-bottom:14px;color:var(--muted)}
+.danger-act .btn{width:100%;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chip{border:0;cursor:pointer;font:600 .97rem 'Figtree',sans-serif;padding:12px 22px;min-height:46px;border-radius:999px;background:var(--peach-soft);color:var(--teal-dark);box-shadow:inset 0 0 0 2px var(--peach);transition:background .2s,color .2s}
+.chip:hover{background:var(--peach)}
+.chip[aria-pressed="true"]{background:var(--teal);color:#fff;box-shadow:none}
+.topics{display:grid;gap:14px;max-width:860px}
+details.topic{background:#fff;border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+details.topic summary{list-style:none;cursor:pointer;padding:22px 26px;display:flex;align-items:center;gap:16px;font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--teal-dark);min-height:64px}
+details.topic summary::-webkit-details-marker{display:none}
+details.topic summary .tag{flex:none;font:600 .78rem 'Figtree',sans-serif;background:var(--teal-soft);color:var(--teal);padding:5px 12px;border-radius:999px}
+details.topic summary .plus{margin-left:auto;flex:none;width:34px;height:34px;border-radius:50%;background:var(--peach);display:grid;place-items:center;transition:transform .25s}
+details.topic summary .plus svg{width:16px;height:16px;stroke:var(--teal-dark);fill:none;stroke-width:2.6;stroke-linecap:round}
+details.topic[open] summary .plus{transform:rotate(45deg);background:var(--pink-soft)}
+.topic-body{padding:0 26px 26px;color:var(--ink);animation:pop .35s ease}
+.topic-body p{margin-bottom:12px;color:var(--muted)}
+.topic-body ul{margin:0 0 4px 22px;display:grid;gap:8px}
+.topic-body li::marker{color:var(--pink)}
+.tip{margin-top:14px;background:var(--peach-soft);border-radius:18px;padding:14px 18px;font-weight:500;color:var(--teal-dark)}
+.myths{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.myth{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.myth .m{background:var(--pink-soft);padding:18px 24px;font-weight:600;color:#8A2441}
+.myth .f{padding:18px 24px 22px;color:var(--ink)}
+.myth b{display:block;font-size:.85rem;margin-bottom:4px}
+.myth .f b{color:var(--teal)}
+.learn-teaser .grid{margin-top:0}
+.topic-card{text-align:left}
+.topic-card .btn{width:auto;align-self:flex-start}
+@media (max-width:980px){.danger-box{grid-template-columns:1fr}}
+@media (max-width:760px){.danger-box ul{grid-template-columns:1fr}.myths{grid-template-columns:1fr}details.topic summary{padding:18px 18px;font-size:1.05rem}.topic-body{padding:0 18px 22px}details.topic summary .tag{display:none}.danger-box{padding:22px 18px}}
+
+/* Footer */
+footer{background:var(--teal-dark);color:#CFE3E1;padding:56px 0 28px;margin-top:40px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+footer .logo{color:#fff;margin-bottom:12px}
+footer h4{color:#fff;margin-bottom:12px;font-family:'Fraunces',serif;font-size:1.1rem}
+footer ul{list-style:none;display:grid;gap:8px}
+footer a:hover{color:var(--peach)}
+.copy{border-top:1px solid rgba(255,255,255,.14);margin-top:36px;padding-top:20px;font-size:.88rem;text-align:center}
+
+/* Floating WhatsApp */
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:60;width:62px;height:62px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 28px rgba(37,211,102,.5);transition:transform .2s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:34px;height:34px;fill:#fff}
+.wa-float::after{content:"";position:absolute;inset:0;border-radius:50%;border:3px solid #25D366;animation:ping 2.4s infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+
+/* Reveal on scroll: only the stats band */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+
+/* Responsive */
+@media (max-width:980px){
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:1fr 1fr}
+  .book-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  section{padding:52px 0}
+  .burger{display:grid}
+  .menu{position:absolute;top:72px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:14px 4%;gap:4px;box-shadow:0 20px 30px rgba(15,82,87,.12);display:none;border-radius:0 0 28px 28px}
+  .menu.open{display:flex}
+  .menu a.link{display:block;padding:14px 18px}
+  .hero{padding-top:24px}
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero-img{width:min(340px,88%)}
+  .float-card{left:-6px}
+  .stats-box{grid-template-columns:1fr;padding:26px 20px;gap:18px}
+  .g4,.g3{grid-template-columns:1fr}
+  .cta-row .btn{width:100%}
+  .row2{grid-template-columns:1fr;gap:0}
+  .form-card{padding:24px 20px}
+  .cta-band{padding:40px 22px;border-radius:30px}
+  .foot{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .hero .rise,.reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#/" class="logo" aria-label="Osas Medicare home">
+      <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2 0 3.7 1.1 5.4 3 1.7-1.9 3.4-3 5.4-3 3.6 0 5.7 3.7 4.2 7.200C19.5 16.4 12 21 12 21z"/></svg></span>
+      Osas Medicare
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul class="menu" id="menu">
+      <li><a class="link" href="#/" data-route="home">Home</a></li>
+      <li><a class="link" href="#/services" data-route="services">Services</a></li>
+      <li><a class="link" href="#/learn" data-route="learn">Learn</a></li>
+      <li><a class="link" href="#/book" data-route="book">Book a visit</a></li>
+      <li><a class="btn btn-wa btn-sm" data-wa="Hello Osas Medicare, I would like some help." target="_blank" rel="noopener">WhatsApp us</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="app" tabindex="-1"></main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2 0 3.7 1.1 5.4 3 1.7-1.9 3.4-3 5.4-3 3.6 0 5.7 3.7 4.2 7.200C19.5 16.4 12 21 12 21z"/></svg></span>Osas Medicare</div>
+        <p>Safe Motherhood, Healthy Beginnings. Caring for mothers and babies across Nigeria.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="#/">Home</a></li>
+          <li><a href="#/services">Our services</a></li>
+          <li><a href="#/learn">Learn about maternity care</a></li>
+          <li><a href="#/book">Book a visit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Talk to us</h4>
+        <ul>
+          <li><a data-wa="Hello Osas Medicare" target="_blank" rel="noopener">Chat on WhatsApp</a></li>
+          <li>Emergency line: <a href="tel:+2348000000000">0800 000 0000</a></li>
+          <li>Open 24 hours, every day</li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© <span id="yr"></span> Osas Medicare. This website gives general information and does not replace a doctor's advice.</p>
+  </div>
+</footer>
+
+<a class="wa-float" data-wa="Hello Osas Medicare, I need help." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24s8.24 3.7 8.24 8.24-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.07-.1-.23-.16-.48-.29z"/></svg>
+</a>
+
+<script>
+/* ============ SETTINGS: change these ============ */
+const WHATSAPP_NUMBER = "2348000000000"; // country code + number, no "+" (e.g. 2348012345678)
+
+// Photos. Replace with your own Unsplash/hospital photos. If a photo fails to load, a soft placeholder shows instead.
+const IMAGES = {
+  hero: "https://images.unsplash.com/photo-1531983412531-1f49a365ffed?auto=format&fit=crop&w=900&q=80"
+};
+/* ================================================ */
+
+const SERVICES = [
+  {id:"antenatal", name:"Antenatal Care", icon:"heart", min:15000, max:35000, desc:"Regular check-ups, blood tests and advice to keep you and your baby healthy from week one."},
+  {id:"ultrasound", name:"Ultrasound Scan", icon:"scan", min:10000, max:25000, desc:"Safe baby scans to check growth, position and heartbeat, and to see your little one."},
+  {id:"delivery", name:"Labour & Delivery", icon:"baby", min:150000, max:450000, desc:"A calm, clean delivery room with skilled midwives and doctors beside you all the way."},
+  {id:"postnatal", name:"Postnatal Care", icon:"flower", min:10000, max:25000, desc:"Check-ups for you after birth, covering healing, rest, mood and recovery."},
+  {id:"newborn", name:"Newborn Care", icon:"moon", min:12000, max:30000, desc:"Health checks, vaccines and feeding advice for your baby's first weeks."},
+  {id:"breastfeeding", name:"Breastfeeding Support", icon:"drop", min:8000, max:15000, desc:"Gentle one-to-one help with latching, milk supply and feeding positions."},
+  {id:"family", name:"Family Planning", icon:"calendar", min:5000, max:20000, desc:"Private advice and safe options to help you plan when to have your next baby."},
+  {id:"emergency", name:"Emergency Maternity Care", icon:"alert", min:50000, max:300000, desc:"Urgent care for bleeding, severe pain, high blood pressure and other danger signs. Open 24/7."}
+];
+
+const PROVIDERS = [
+  {id:"ngozi", name:"Dr. Ngozi Okafor", role:"Obstetrician"},
+  {id:"funke", name:"Midwife Funke Adeyemi", role:"Midwife"},
+  {id:"chidi", name:"Dr. Chidi Eze", role:"Pediatrician"},
+  {id:"amina", name:"Midwife Amina Bello", role:"Midwife"},
+  {id:"osas", name:"Dr. Osas Igbinedion", role:"Obstetrician"},
+  {id:"blessing", name:"Midwife Blessing Udoh", role:"Midwife"},
+  {id:"tunde", name:"Dr. Tunde Balogun", role:"Pediatrician"},
+  {id:"grace", name:"Midwife Grace Nwosu", role:"Midwife"}
+];
+
+const TESTIMONIALS = [
+  {name:"Chiamaka O.", where:"Lagos", text:"From my first scan to the day I held my baby, I felt safe. The midwives answered every worry I had, even the small ones."},
+  {name:"Hauwa B.", where:"Abuja", text:"Booking on my phone took two minutes. They confirmed on WhatsApp the same hour. No long queues, no stress."},
+  {name:"Folake A.", where:"Ibadan", text:"The breastfeeding nurse was so patient with me. I went home confident, and my baby is feeding well."}
+];
+
+const ICONS = {
+  heart:'<path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2 0 3.7 1.1 5.4 3 1.7-1.9 3.4-3 5.4-3 3.6 0 5.7 3.7 4.2 7.2C19.5 16.4 12 21 12 21z"/>',
+  scan:'<path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3.5"/>',
+  baby:'<circle cx="12" cy="9" r="5"/><path d="M9.5 9.500h.01M14.5 9.500h.01M10 11.500c1 1 3 1 4 0M6 20c.8-3 3.2-4.5 6-4.500s5.2 1.5 6 4.5"/>',
+  flower:'<circle cx="12" cy="12" r="2.5"/><path d="M12 9.500C10 6 10.5 3.5 12 3c1.5.5 2 3 0 6.500zM14.5 12c3.5-2 6-1.5 6.5 0-.5 1.5-3 2-6.5 0zM12 14.500c2 3.5 1.5 6-0 6.5-1.5-.5-2-3 0-6.500zM9.5 12c-3.5 2-6 1.5-6.5 0 .5-1.5 3-2 6.5 0z"/>',
+  moon:'<path d="M20 14.500A8.5 8.5 0 1 1 9.5 4 7 7 0 0 0 20 14.500z"/><path d="M17 4v3M15.5 5.500h3"/>',
+  drop:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9.5 14.500a2.5 2.5 0 0 0 2.5 2.5"/>',
+  calendar:'<rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M9 15l2 2 4-4"/>',
+  alert:'<path d="M12 3 2.5 20h19L12 3z"/><path d="M12 10v4.500M12 17.500h.01"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  check:'<path d="M5 12.500l4.5 4.500L19 7.5"/>',
+  shield:'<path d="M12 3 4.5 6v5.500c0 4.5 3 8 7.5 9.5 4.5-1.5 7.5-5 7.5-9.500V6L12 3z"/><path d="M9 12l2 2 4-4"/>',
+  phone:'<path d="M5 4h4l2 5-2.5 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>'
+};
+const ico = n => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[n]}</svg>`;
+const naira = n => "₦" + n.toLocaleString("en-NG");
+const waLink = msg => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+const waIcon = document.querySelector('.wa-float').innerHTML;
+
+/* Safe image with soft placeholder fallback */
+const photo = (src, alt, cls="arch") => `
+  <div class="${cls}"><div class="ph"><svg viewBox="0 0 24 24" fill="currentColor" opacity=".5"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2 0 3.7 1.1 5.4 3 1.7-1.9 3.4-3 5.4-3 3.6 0 5.7 3.7 4.2 7.200C19.5 16.4 12 21 12 21z"/></svg></div>
+  <img src="${src}" alt="${alt}" loading="lazy" onerror="this.remove()"></div>`;
+
+/* ============ PAGES ============ */
+function serviceCard(s){
+  return `<article class="card">
+    <div class="icon">${`<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[s.icon]}</svg>`}</div>
+    <h3>${s.name}</h3>
+    <p>${s.desc}</p>
+    <div class="price">${naira(s.min)} – ${naira(s.max)}<small>Price range</small></div>
+    <a class="btn btn-teal btn-sm" href="#/book?service=${s.id}">Book this service</a>
+  </article>`;
+}
+
+function homePage(){
+  return `
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="rise">Your Safe Journey to Motherhood Starts Here</h1>
+        <p class="lead rise">Caring midwives and doctors for every stage of your pregnancy, delivery and life with your new baby. Simple to book. Easy to reach.</p>
+        <div class="cta-row rise">
+          <a class="btn btn-primary" href="#/book">Book Antenatal Visit</a>
+          <a class="btn btn-wa" data-wa="Hello Osas Medicare, I would like to ask about antenatal care." target="_blank" rel="noopener">${waIcon}Chat on WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-img rise">
+        <span class="blob a"></span><span class="blob b"></span>
+        ${photo(IMAGES.hero,"A happy pregnant mother smiling")}
+        <div class="float-card"><div class="dot">${ico("clock")}</div><div><b>Open 24/7</b><span>Midwives always on call</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats"><div class="wrap">
+    <div class="stats-box reveal">
+      <div class="stat"><b data-count="2000" data-suffix="+">2,000+</b><span>Safe deliveries</span></div>
+      <div class="stat"><b data-count="50" data-suffix="+">50+</b><span>Midwives & doctors</span></div>
+      <div class="stat"><b>24/7</b><span>Support, day and night</span></div>
+    </div>
+  </div></section>
+
+  <section>
+    <div class="wrap">
+      <div class="head"><h2>Care for you and your baby</h2><p class="lead">From your first scan to your baby's first vaccines, we are with you.</p></div>
+      <div class="grid g4">${SERVICES.slice(0,4).map(serviceCard).join("")}</div>
+      <p style="text-align:center;margin-top:32px"><a class="btn btn-ghost" href="#/services">See all services</a></p>
+    </div>
+  </section>
+
+  <section class="learn-teaser">
+    <div class="wrap">
+      <div class="head"><h2>Learn how to stay safe and well</h2><p class="lead">Short, friendly guides on pregnancy, eating well, labour, and caring for your baby.</p></div>
+      <div class="grid g3">
+        <article class="card topic-card"><div class="icon"><svg viewBox="0 0 24 24">${ICONS.alert}</svg></div><h3>Warning signs</h3><p>Know the signs that mean you must get help straight away.</p><a class="btn btn-ghost btn-sm" href="#/learn">Read more</a></article>
+        <article class="card topic-card"><div class="icon"><svg viewBox="0 0 24 24">${ICONS.heart}</svg></div><h3>Eating well in pregnancy</h3><p>Good local foods that help you and your baby grow strong.</p><a class="btn btn-ghost btn-sm" href="#/learn">Read more</a></article>
+        <article class="card topic-card"><div class="icon"><svg viewBox="0 0 24 24">${ICONS.baby}</svg></div><h3>Breastfeeding and newborn care</h3><p>Simple steps for your baby's first weeks and months.</p><a class="btn btn-ghost btn-sm" href="#/learn">Read more</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps">
+    <div class="wrap">
+      <div class="head center"><h2>Booking takes about two minutes</h2></div>
+      <div class="grid g3">
+        <div class="step"><div class="n">1</div><div><h3>Fill in the form</h3><p>Tell us your name, how many weeks pregnant you are and what you need.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h3>We confirm on WhatsApp</h3><p>A member of our team messages you to confirm your day and time.</p></div></div>
+        <div class="step"><div class="n">3</div><div><h3>Come in, relax</h3><p>Meet your midwife or doctor and get the care you deserve.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head center"><h2>Words from our mums</h2><p class="lead">Sample testimonials. Replace with real mothers' words and permission before launch.</p></div>
+      <div class="grid g3">
+        ${TESTIMONIALS.map(t=>`<figure class="card quote">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>“${t.text}”</p>
+          <figcaption class="who"><div class="avatar">${t.name[0]}</div><div><b>${t.name}</b><span>${t.where}</span></div></figcaption>
+        </figure>`).join("")}
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap"><div class="cta-band">
+      <h2>Ready to meet your care team?</h2>
+      <p>Book your first antenatal visit today. If you have any danger signs, call our emergency line right away.</p>
+      <div class="cta-row"><a class="btn btn-primary" href="#/book">Book Antenatal Visit</a><a class="btn btn-wa" data-wa="Hello Osas Medicare, I have a question." target="_blank" rel="noopener">${waIcon}Chat on WhatsApp</a></div>
+    </div></div>
+  </section>`;
+}
+
+function servicesPage(){
+  return `
+  <div class="page-title"><div class="wrap">
+    <h1>Our services</h1>
+    <p class="lead">Everything you need for a safe pregnancy, birth and early motherhood, all in one place.</p>
+  </div></div>
+  <section style="padding-top:36px"><div class="wrap">
+    <div class="grid g4">${SERVICES.map(serviceCard).join("")}</div>
+    <p class="hint" style="margin-top:24px;text-align:center">Prices are a guide. Your final cost depends on your care needs. We will explain everything before you pay.</p>
+  </div></section>`;
+}
+
+function bookPage(preService){
+  const today = new Date(); today.setMinutes(today.getMinutes()-today.getTimezoneOffset());
+  const minDate = today.toISOString().slice(0,10);
+  return `
+  <div class="page-title"><div class="wrap">
+    <h1>Book an appointment</h1>
+    <p class="lead">Fill in this short form. We will confirm your visit on WhatsApp.</p>
+  </div></div>
+  <section style="padding-top:36px"><div class="wrap book-grid">
+    <div class="form-card" id="formCard">
+      <form id="bookForm" novalidate>
+        <div class="field"><label for="name">Mother's name</label>
+          <input id="name" name="name" autocomplete="name" placeholder="e.g. Chiamaka Okeke" required>
+          <div class="err">Please enter your full name.</div></div>
+        <div class="field"><label for="phone">Phone / WhatsApp number</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="e.g. 0803 123 4567" required>
+          <div class="err">Please enter a valid Nigerian number, like 08031234567.</div></div>
+        <div class="row2">
+          <div class="field"><label for="age">Your age</label>
+            <input id="age" name="age" type="number" inputmode="numeric" min="12" max="55" placeholder="e.g. 28" required>
+            <div class="err">Please enter an age from 12 to 55.</div></div>
+          <div class="field"><label for="weeks">Weeks pregnant</label>
+            <input id="weeks" name="weeks" type="number" inputmode="numeric" min="0" max="42" placeholder="0 if not pregnant" required>
+            <div class="err">Please enter a number from 0 to 42.</div></div>
+        </div>
+        <div class="field"><label for="service">Choose service</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            ${SERVICES.map(s=>`<option value="${s.id}" ${s.id===preService?"selected":""}>${s.name} (${naira(s.min)} – ${naira(s.max)})</option>`).join("")}
+          </select>
+          <div class="err">Please choose a service.</div></div>
+        <div class="field"><label for="provider">Choose doctor or midwife</label>
+          <select id="provider" name="provider">
+            <option value="Any available">Any available (fastest)</option>
+            ${PROVIDERS.map(p=>`<option value="${p.name}">${p.name}, ${p.role}</option>`).join("")}
+          </select></div>
+        <div class="row2">
+          <div class="field"><label for="date">Preferred date</label>
+            <input id="date" name="date" type="date" min="${minDate}" required>
+            <div class="err">Please pick a date from today onwards.</div></div>
+          <div class="field"><label for="time">Preferred time</label>
+            <select id="time" name="time" required>
+              <option value="">Select time</option>
+              ${["8:00 AM","9:00 AM","10:00 AM","11:00 AM","12:00 PM","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM"].map(t=>`<option>${t}</option>`).join("")}
+            </select>
+            <div class="err">Please choose a time.</div></div>
+        </div>
+        <button class="btn btn-primary" type="submit" style="width:100%">Book my appointment</button>
+        <p class="hint" style="text-align:center;margin-top:12px">Your details are private and only used to confirm your visit.</p>
+      </form>
+    </div>
+    <aside>
+      <div class="side-card">
+        <h3>What happens next</h3>
+        <ul>
+          <li>${ico("phone")}<span>We message you on WhatsApp to confirm your day and time.</span></li>
+          <li>${ico("shield")}<span>Bring your phone, ID and any past medical or scan papers.</span></li>
+          <li>${ico("clock")}<span>Please arrive 15 minutes early for your first visit.</span></li>
+        </ul>
+        <div class="emergency"><b>Is this an emergency?</b><br>Heavy bleeding, severe headache, fits, or no baby movement? Do not wait. Call <a href="tel:+2348000000000"><b>0800 000 0000</b></a> or go to the nearest hospital now.</div>
+      </div>
+    </aside>
+  </div></section>`;
+}
+
+
+/* ============ LEARN CONTENT ============ */
+const TOPICS = [
+ {cat:"before", tag:"Pregnancy", title:"Why antenatal visits matter", body:`
+  <p>Antenatal care is regular check-ups during pregnancy. It finds problems early, often before you feel anything.</p>
+  <ul><li>Start as soon as you think you are pregnant.</li><li>The World Health Organization advises at least 8 visits during pregnancy.</li><li>At each visit we check your blood pressure, weight, blood and urine, and your baby's growth and heartbeat.</li><li>You can ask any question. No question is too small.</li></ul>
+  <div class="tip">Tip: Write your questions on your phone before each visit so you do not forget.</div>`},
+ {cat:"before", tag:"Pregnancy", title:"Tests and medicines you may need", body:`
+  <p>Your midwife or doctor may advise tests for blood group, genotype, anaemia, HIV, hepatitis B, syphilis and urine infection. These protect you and your baby.</p>
+  <ul><li>Folic acid helps your baby's brain and spine grow well. It is best taken before pregnancy and in the first 12 weeks.</li><li>Iron and folate tablets help prevent anaemia (low blood).</li><li>Malaria is dangerous in pregnancy. Sleep under an insecticide-treated net every night and take the malaria prevention medicine your health worker gives you.</li><li>Do not take herbal mixtures or drugs without asking your midwife or doctor first.</li></ul>`},
+ {cat:"eating", tag:"Eating well", title:"What to eat while pregnant", body:`
+  <p>You do not need to "eat for two". You need to eat good food, a little more often.</p>
+  <ul><li>Eat beans, eggs, fish, chicken, groundnuts, and milk or yoghurt for body-building protein.</li><li>Eat ugu, spinach and other green leaves, plus fruits like oranges, pawpaw and mango, every day.</li><li>Choose whole grains such as brown rice, oats, millet and unripe plantain.</li><li>Iron-rich foods (beans, liver, green leaves) work better with vitamin C, so add an orange or tomato.</li></ul>
+  <div class="tip">Feeling sick in the morning? Try small meals, dry biscuits or ginger tea, and sip water through the day.</div>`},
+ {cat:"eating", tag:"Eating well", title:"Staying safe with food and drink", body:`
+  <ul><li>Drink plenty of clean, safe water.</li><li>Wash fruits and vegetables well.</li><li>Cook meat, fish and eggs fully. Avoid raw or unpasteurised milk.</li><li>Do not drink alcohol or smoke. Keep away from other people's smoke.</li><li>Limit tea, coffee and energy drinks.</li></ul>`},
+ {cat:"labour", tag:"Labour", title:"Get ready for labour and birth", body:`
+  <p>Plan early, so you are calm on the day.</p>
+  <ul><li>Choose where you will deliver. Give birth with a skilled midwife or doctor in a health facility.</li><li>Save some money and plan your transport. Know the way to the facility, also at night.</li><li>Choose a birth companion you trust.</li><li>Pack your bag by week 36: ID, antenatal card, wrappers, pads, baby clothes, towel, snacks and your phone charger.</li></ul>
+  <div class="tip">Tell your family your birth plan and the danger signs so they can act fast if you need help.</div>`},
+ {cat:"labour", tag:"Labour", title:"Signs that labour is starting", body:`
+  <ul><li>Tightening of the belly that comes regularly, grows stronger and closer together, and does not stop when you rest.</li><li>A pink or bloody mucus "show".</li><li>Your waters break, with a gush or steady leak of fluid.</li></ul>
+  <p>Call your midwife or come to us when contractions are regular, or as soon as your waters break. Come straight away if you have bleeding, severe pain or your baby moves less.</p>`},
+ {cat:"after", tag:"After birth", title:"Caring for yourself after birth", body:`
+  <ul><li>Have a check-up within the first day, and again around day 3, between day 7 and 14, and at 6 weeks.</li><li>Rest whenever your baby sleeps. Ask family to help with cooking and washing.</li><li>Eat good meals and drink lots of water, especially if you breastfeed.</li><li>Feeling sad, anxious or tearful for more than two weeks is common and treatable. Please tell us. You are not alone.</li><li>Wait at least 2 years before your next pregnancy. Family planning helps you heal and stay healthy.</li></ul>`},
+ {cat:"after", tag:"After birth", title:"Danger signs for new mothers", body:`
+  <p>Get help straight away if you have:</p>
+  <ul><li>Heavy bleeding, such as soaking a pad in an hour.</li><li>Fever, or foul-smelling discharge.</li><li>Severe headache, blurred vision or fits.</li><li>Pain or swelling in one leg, or trouble breathing.</li><li>Thoughts of harming yourself or your baby.</li></ul>`},
+ {cat:"baby", tag:"Baby", title:"Breastfeeding made simple", body:`
+  <ul><li>Put your baby to the breast within the first hour after birth. The first thick milk (colostrum) protects your baby.</li><li>Give only breast milk for the first 6 months. No water, pap or formula unless a health worker advises it.</li><li>Feed whenever baby shows hunger, about 8 to 12 times in 24 hours.</li><li>A good latch means a wide open mouth, with more of the dark area around the nipple in the mouth. It should not hurt.</li></ul>
+  <div class="tip">Sore nipples or low milk worry? Book our breastfeeding support. Most problems are easy to fix.</div>`},
+ {cat:"baby", tag:"Baby", title:"Caring for your newborn", body:`
+  <ul><li>Keep baby warm with skin-to-skin contact on your chest.</li><li>Keep the cord stump clean and dry. Do not put anything on it.</li><li>Wash your hands before touching baby.</li><li>Lay baby on the back to sleep, on a firm bed with no pillows.</li><li>Take baby for vaccines at birth (BCG, polio and hepatitis B) and keep to the immunisation card after.</li><li>Go to hospital quickly if baby is not feeding, breathes fast, feels very hot or cold, looks yellow in the first day, or has fits.</li></ul>`}
+];
+
+const MYTHS = [
+ {m:"Eat for two, so eat double.", f:"Your baby is tiny. Eat a little more, and choose healthy food. Too much weight gain can cause problems."},
+ {m:"Herbal mixtures are natural, so they are safe.", f:"Some can cause bleeding, early labour or harm your baby. Always ask your midwife or doctor first."},
+ {m:"Go to the hospital only when labour pains start.", f:"Many dangers, like high blood pressure, have no pain. Antenatal visits find them early."},
+ {m:"Baby needs water in hot weather.", f:"Breast milk has all the water your baby needs for the first 6 months."},
+ {m:"Scans can harm the baby.", f:"Ultrasound uses sound waves, not radiation. It is safe for you and your baby."},
+ {m:"Pain in labour means something is wrong.", f:"Labour is hard work, but we can help you cope. Tell your midwife how you feel."}
+];
+
+const DANGER = ["Vaginal bleeding","Severe headache or blurred vision","Swollen face or hands","Fits or fainting","Strong belly pain","Fever or chills","Baby moving much less","Waters breaking early","Trouble breathing"];
+
+function learnPage(){
+  const chips = [["all","All topics"],["before","Pregnancy"],["eating","Eating well"],["labour","Labour & birth"],["after","After birth"],["baby","Baby & feeding"]];
+  return `
+  <div class="page-title"><div class="wrap">
+    <h1>Learn about safe motherhood</h1>
+    <p class="lead">Simple, friendly facts to help you stay healthy before, during and after pregnancy.</p>
+  </div></div>
+
+  <section style="padding-top:36px;padding-bottom:36px"><div class="wrap">
+    <div class="danger-box">
+      <div>
+        <h2>Warning signs you should never ignore</h2>
+        <p>If you have any of these in pregnancy, do not wait. Go to the hospital or call us now.</p>
+        <ul>${DANGER.map(d=>`<li>${d}</li>`).join("")}</ul>
+      </div>
+      <div class="danger-act">
+        <p>Emergency care is open 24 hours, every day.</p>
+        <a class="btn btn-primary" href="tel:+2348000000000">${ico("phone").replace("<svg","<svg fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'")}Call 0800 000 0000</a>
+        <a class="btn btn-wa btn-sm" data-wa="EMERGENCY: I need urgent maternity help." target="_blank" rel="noopener">${waIcon}WhatsApp us</a>
+      </div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:20px"><div class="wrap">
+    <div class="head"><h2>Choose a topic</h2></div>
+    <div class="chips" id="chips" role="group" aria-label="Filter topics">
+      ${chips.map(([k,l],i)=>`<button class="chip" type="button" data-cat="${k}" aria-pressed="${i===0}">${l}</button>`).join("")}
+    </div>
+    <div class="topics" id="topics">
+      ${TOPICS.map(t=>`<details class="topic" data-cat="${t.cat}">
+        <summary><span>${t.title}</span><span class="tag">${t.tag}</span><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="topic-body">${t.body}</div>
+      </details>`).join("")}
+    </div>
+  </div></section>
+
+  <section class="steps"><div class="wrap">
+    <div class="head center"><h2>Myths and facts</h2><p class="lead">Lots of advice goes around. Here is what is true.</p></div>
+    <div class="myths">
+      ${MYTHS.map(x=>`<div class="myth"><div class="m"><b>MYTH</b>${x.m}</div><div class="f"><b>FACT</b>${x.f}</div></div>`).join("")}
+    </div>
+  </div></section>
+
+  <section><div class="wrap"><div class="cta-band">
+    <h2>Have a question about your pregnancy?</h2>
+    <p>Our midwives are happy to answer. This page gives general information and does not replace a visit with your doctor or midwife.</p>
+    <div class="cta-row"><a class="btn btn-primary" href="#/book">Book Antenatal Visit</a><a class="btn btn-wa" data-wa="Hello Osas Medicare, I have a question about my pregnancy." target="_blank" rel="noopener">${waIcon}Ask on WhatsApp</a></div>
+  </div></div></section>`;
+}
+
+function setupLearn(){
+  const chips = document.querySelectorAll("#chips .chip");
+  if(!chips.length) return;
+  chips.forEach(c=>c.addEventListener("click",()=>{
+    chips.forEach(x=>x.setAttribute("aria-pressed", x===c));
+    document.querySelectorAll("#topics .topic").forEach(t=>{
+      t.hidden = !(c.dataset.cat==="all" || t.dataset.cat===c.dataset.cat);
+    });
+  }));
+  const first = document.querySelector("#topics .topic"); if(first) first.open = true;
+}
+
+/* ============ BOOKING LOGIC ============ */
+function setupBooking(){
+  const form = document.getElementById("bookForm");
+  if(!form) return;
+  const rules = {
+    name: v => v.trim().split(/\s+/).filter(x=>x.length>1).length>=1 && v.trim().length>=3,
+    phone: v => /^(?:\+?234|0)[789][01]\d{8}$/.test(v.replace(/[\s-]/g,"")),
+    age: v => v!=="" && +v>=12 && +v<=55,
+    weeks: v => v!=="" && +v>=0 && +v<=42,
+    service: v => v!=="",
+    date: v => { if(!v) return false; const t=new Date(); t.setHours(0,0,0,0); return new Date(v+"T00:00:00")>=t; },
+    time: v => v!==""
+  };
+  const check = id => {
+    const el = form.elements[id], ok = rules[id](el.value);
+    el.closest(".field").classList.toggle("bad", !ok);
+    return ok;
+  };
+  Object.keys(rules).forEach(id=>{
+    form.elements[id].addEventListener("blur",()=>check(id));
+    form.elements[id].addEventListener("input",()=>{ if(form.elements[id].closest(".field").classList.contains("bad")) check(id); });
+  });
+  form.addEventListener("submit", e=>{
+    e.preventDefault();
+    const results = Object.keys(rules).map(check);
+    if(results.includes(false)){
+      const first = form.querySelector(".field.bad input, .field.bad select");
+      first && first.focus();
+      return;
+    }
+    const d = Object.fromEntries(new FormData(form));
+    const svc = SERVICES.find(s=>s.id===d.service);
+    const dateNice = new Date(d.date+"T00:00:00").toLocaleDateString("en-NG",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+    const msg = `Hello Osas Medicare, I just booked an appointment.\nName: ${d.name}\nPhone: ${d.phone}\nAge: ${d.age}\nWeeks pregnant: ${d.weeks}\nService: ${svc.name}\nWith: ${d.provider}\nWhen: ${dateNice}, ${d.time}`;
+    document.getElementById("formCard").innerHTML = `
+      <div class="success" role="status">
+        <div class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.500l4.5 4.500L19 7.5"/></svg></div>
+        <h2>Thank you, ${d.name.trim().split(/\s+/)[0]}!</h2>
+        <p class="lead" style="margin-inline:auto">Thank you! Osas Medicare will confirm your appointment on WhatsApp.</p>
+        <div class="summary">
+          <div><span>Service</span><b>${svc.name}</b></div>
+          <div><span>With</span><b>${d.provider}</b></div>
+          <div><span>Date</span><b>${dateNice}</b></div>
+          <div><span>Time</span><b>${d.time}</b></div>
+          <div><span>WhatsApp</span><b>${d.phone}</b></div>
+        </div>
+        <div class="cta-row" style="justify-content:center">
+          <a class="btn btn-wa" href="${waLink(msg)}" target="_blank" rel="noopener">${waIcon}Send details on WhatsApp</a>
+          <a class="btn btn-ghost" href="#/">Back to home</a>
+        </div>
+      </div>`;
+    document.getElementById("formCard").scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+
+/* ============ ROUTER ============ */
+const app = document.getElementById("app");
+function route(){
+  const [path, qs] = (location.hash.slice(1) || "/").split("?");
+  const params = new URLSearchParams(qs||"");
+  let key = "home";
+  if(path==="/services"){ app.innerHTML = servicesPage(); key="services"; }
+  else if(path==="/learn"){ app.innerHTML = learnPage(); key="learn"; setupLearn(); }
+  else if(path==="/book"){ app.innerHTML = bookPage(params.get("service")); key="book"; setupBooking(); }
+  else { app.innerHTML = homePage(); }
+  document.querySelectorAll(".menu a.link").forEach(a=>a.classList.toggle("active", a.dataset.route===key));
+  document.title = (key==="home" ? "Osas Medicare | Safe Motherhood, Healthy Beginnings" : ({services:"Services",learn:"Learn about safe motherhood",book:"Book an appointment"}[key]) + " | Osas Medicare");
+  window.scrollTo({top:0});
+  closeMenu(); bindWhatsApp(); setupReveal();
+}
+window.addEventListener("hashchange", route);
+
+/* WhatsApp links */
+function bindWhatsApp(){
+  document.querySelectorAll("[data-wa]").forEach(a=>{ a.href = waLink(a.dataset.wa); });
+}
+
+/* Mobile menu */
+const burger = document.getElementById("burger"), menu = document.getElementById("menu");
+function closeMenu(){ menu.classList.remove("open"); burger.setAttribute("aria-expanded","false"); }
+burger.addEventListener("click",()=>{
+  const open = menu.classList.toggle("open");
+  burger.setAttribute("aria-expanded", open);
+});
+document.addEventListener("click",e=>{ if(!e.target.closest("header")) closeMenu(); });
+
+/* Sticky navbar shadow */
+addEventListener("scroll",()=>document.getElementById("top").classList.toggle("scrolled", scrollY>8),{passive:true});
+
+/* Stats band: reveal + count up (the one scroll moment) */
+function setupReveal(){
+  const els = document.querySelectorAll(".reveal");
+  if(!els.length) return;
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      en.target.classList.add("in");
+      if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
+        en.target.querySelectorAll("[data-count]").forEach(b=>{
+          const end=+b.dataset.count, suf=b.dataset.suffix||"", t0=performance.now(), dur=1400;
+          const tick=t=>{ const p=Math.min((t-t0)/dur,1), v=Math.round(end*(1-Math.pow(1-p,3)));
+            b.textContent=v.toLocaleString("en-NG")+suf; if(p<1) requestAnimationFrame(tick); };
+          requestAnimationFrame(tick);
+        });
+      }
+      io.unobserve(en.target);
+    });
+  },{threshold:.35});
+  els.forEach(el=>io.observe(el));
+}
+
+document.getElementById("yr").textContent = new Date().getFullYear();
+route();
+</script>
+</body>
+</html>
